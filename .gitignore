@@ -1,0 +1,14 @@
+node_modules/
+*.min.*
+.DS_Store
+.env
+themes/
+**/assets/
+**/media/
+**/templates/
+**/sections/
+**/snippets/
+**/config/
+**/layout/
+**/locales/
+**/index.js

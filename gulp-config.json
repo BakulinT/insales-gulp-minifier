@@ -1,0 +1,47 @@
+{
+    "files": {
+        "path": "",
+        "js": {
+            "main": [
+                "emilius_modules.js",
+                "theme.js"
+            ]
+        },
+        "css": {
+            "main": [
+                "theme.css"
+            ]
+        }
+    },
+    "minifyModes": {
+        "light": {
+            "terser": {
+                "compress": false,
+                "mangle": false
+            },
+            "cleanCSS": {
+                "level": 1
+            }
+        },
+        "normal": {
+            "terser": {
+                "compress": true,
+                "mangle": true
+            },
+            "cleanCSS": {
+                "level": 2
+            }
+        },
+        "hard": {
+            "terser": {
+                "compress": {
+                    "drop_console": true
+                },
+                "mangle": true
+            },
+            "cleanCSS": {
+                "level": 2
+            }
+        }
+    }
+}
