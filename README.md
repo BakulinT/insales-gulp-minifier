@@ -21,13 +21,11 @@ npx gulp minify theme=your-theme
 npx gulp minify theme=your-theme --mode=hard
 ```
 
-<br/>
-
 ## 📚 Примеры использования
 
 ### 1. По файлам из CLI
 
-```
+```bash
 # Только конкретные JS
 npx gulp js --files em_theme.js app.js
 
@@ -37,7 +35,7 @@ npx gulp css --files style.css theme.css
 
 ### 2. Из конфига gulp-config.json
 
-```
+```bash
 # JS из "main" секции конфига
 npx gulp js --config main
 
@@ -49,7 +47,7 @@ npx gulp --type js --config vendor
 ```
 
 ### 3. Режимы минификации
-```
+```bash
 # Легкая (без изменений имен)
 npx gulp minify --mode light
 
@@ -63,19 +61,17 @@ npx gulp css
 
 ### 4. Комбо
 
-```
+```bash
 # Максимальный режим оптимизации для JS файла theme.js
 npx gulp js --files theme.js --mode hard
 ```
 
 ### 5. Справка
-```
+```bash
 npx gulp help
 npx gulp --help
 npx gulp --h
 ```
-
-<br/>
 
 ## 🗂️ Структура проекта
 
@@ -89,4 +85,5 @@ insales-gulp-minifier/
 ├── insales-config.js   # Конфигурация uploader
 ├── gulp-config.json    # Пример конфига для проекта
 ├── package.json        # Только нужные devDependencies
+
 ```
