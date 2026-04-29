@@ -8,17 +8,17 @@
 ## ✨ Особенности
 - ✅ Минификация JS (Babel + Terser) + CSS (PostCSS)
 - ✅ Кроссбраузерность (IE11+, Safari 10+)
-- ✅ CLI параметры: --files, --config, --mode, --theme
-- ✅ Конфиг `gulp-config.json` для групп файлов
+- ✅ CLI параметры: --theme (th), --option (o), --mode (m), --type (tp), --files (f)
+- ✅ Конфиг `minifier-config.json` с параметрами запуска
 - ✅ Поддержка InSales Uploader (автозагрузка *.min.*)
 - ✅ 3 режима: light/normal/hard
 
 ## 🚀 Быстрый старт
 
 ```bash
-npm install
-npx gulp minify theme=your-theme
-npx gulp minify theme=your-theme --mode=hard
+npm i
+npx gulp theme=your-theme
+npx gulp theme=your-theme --mode=hard
 ```
 
 ## 📚 Примеры использования
@@ -26,24 +26,22 @@ npx gulp minify theme=your-theme --mode=hard
 ### 1. По файлам из CLI
 
 ```bash
-# Только конкретные JS
+# Только конкретные JS файлы
 npx gulp js --files em_theme.js app.js
 
-# Только CSS
+# Только конкретные CSS файлы
 npx gulp css --files style.css theme.css
 ```
 
-### 2. Из конфига gulp-config.json
+### 2. Из конфига minifier-config.json
+> Можно создавать собственные сброки --option в конфиг файле `minifier-config.json`
 
 ```bash
-# JS из "main" секции конфига
-npx gulp js --config main
+# JS из "min" секции конфига
+npx gulp js --option min
 
-# CSS из "components"
-npx gulp css --config components
-
-# Тип + конфиг
-npx gulp --type js --config vendor
+# CSS из "max" секции конфига
+npx gulp css --option max
 ```
 
 ### 3. Режимы минификации
@@ -54,9 +52,8 @@ npx gulp minify --mode light
 # Максимальный (удаляет console.log)
 npx gulp js --mode hard
 
-# По умолчанию: normal
+# Оптимальный (по умолчанию)
 npx gulp css --mode normal
-npx gulp css
 ```
 
 ### 4. Комбо
@@ -69,21 +66,29 @@ npx gulp js --files theme.js --mode hard
 ### 5. Справка
 ```bash
 npx gulp help
-npx gulp --help
-npx gulp --h
+```
+
+## 📚 Примеры использования uploader
+
+### Основные команды
+> Название и путь темы можно также задавать в `minifier-config.json`<br>
+> Детали по команде uploader смотреть в документации [InSales Uploader](https://insales.github.io/insales-uploader/)
+```bash
+uploader d
+uploader d theme=your-theme
+uploader s theme=your-theme
 ```
 
 ## 🗂️ Структура проекта
 
 ```text
 insales-gulp-minifier/
-├── theme_1/            # Пример рабочей темы 1
-│   ├── index.js        # Настройками доступа к магазину
-├── theme_2/            # Пример рабочей темы 2
-│   ├── index.js        # Настройками доступа к магазину
-├── gulpfile.js         # Основной Gulp
-├── insales-config.js   # Конфигурация uploader
-├── gulp-config.json    # Пример конфига для проекта
-├── package.json        # Только нужные devDependencies
-
+├── theme_1/                # Пример рабочей темы 1
+│   ├── index.js            # Настройками доступа к магазину
+├── theme_2/                # Пример рабочей темы 2
+│   ├── index.js            # Настройками доступа к магазину
+├── gulpfile.js             # Основной Gulp
+├── insales-config.js       # Конфигурация uploader
+├── minifier-config.json    # Пример конфига для проекта
+├── package.json            # Зависимости
 ```

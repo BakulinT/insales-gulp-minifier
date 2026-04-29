@@ -1,37 +1,41 @@
-const extend = require('deepmix');
 const fs = require('fs');
-// var imagemin = require('gulp-imagemin');
-// var autoprefixer = import('insales-uploader-autoprefixer');
-// var jsValidate = import('gulp-jsvalidate');
+const path = require('path');
+const extend = require('deepmix');
 
 // Загрузка конфига
-const config = JSON.parse(fs.readFileSync('./gulp-config.json', 'utf8'));
+const config = JSON.parse(fs.readFileSync(path.normalize('./minifier-config.json'), 'utf8'));
+
+function callError(mess) {
+    console.error(mess);
+
+    process.exitCode = 1;  // Код ошибки для терминала
+    process.exit(1);       // Принудительное завершение
+}
 
 // Название папки с темой
-var nameTheme = null;
+var themeName = config.theme.name;
 
 process.argv.forEach((val) => {
     // Проверка параметра с активным магазином в консоли
     if (~val.indexOf('theme=')) {
-        var shopFolder = val.split('=')[1];
-        var stat = fs.statSync(shopFolder);
-        if (stat.isDirectory()) nameTheme = shopFolder;
+        themeName = val.split('=')[1];
     }
 });
 
-if (!nameTheme && config.files.path) {
-    nameTheme = config.files.path;
+var themePath = path.join(__dirname, config.theme.path, themeName);
+
+if (!themeName) {
+    console.error("\n❌ Error: Обязательный параметр theme не указан");
+    callError("💡 Example: npx gulp theme=your-theme");
+}
+if (!themePath) {
+    callError('Invalid path: путь к теме не задан');
+}
+if (!fs.existsSync(themePath)) {
+    callError(`Invalid path: тема по пути ${themePath} не найдена`);
 }
 
-if (!nameTheme) {
-  console.error('\n❌ ОШИБКА: Обязательный параметр theme не указан!');
-  console.error('💡 Пример: npx gulp minify theme=theme_1');
-  
-  process.exitCode = 1;  // Код ошибки для терминала
-  process.exit(1);       // Принудительное завершение
-}
-
-console.log(`Папка с темой: ${nameTheme}`);
+console.log(`Выбрана тема: ${themePath}\n`);
 
 /**
  * Настройки поумолчанию
@@ -41,7 +45,7 @@ var defaultConfig = {
         http: false
     },
     theme: {
-        root: './' + nameTheme,
+        root: themePath,
         backup: false, // Создавать backup после загрузки?
         assetsSync: true, // Делать синхронизацию с директорией assets?
     },
@@ -92,4 +96,4 @@ var defaultConfig = {
     }
 }
 
-module.exports = extend(defaultConfig, require('./' + nameTheme));
+module.exports = extend(defaultConfig, require(themePath));

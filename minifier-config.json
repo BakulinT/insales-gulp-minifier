@@ -1,21 +1,29 @@
 {
-    "files": {
-        "path": "",
-        "js": {
-            "main": [
-                "emilius_modules.js",
-                "theme.js"
+    "theme": {
+        "path": "./",
+        "name": ""
+    },
+    "options": {
+        "default": {
+            "js": [
+                "name-file.js"
+            ],
+            "css": [
+                "name-file.css"
             ]
         },
-        "css": {
-            "main": [
-                "theme.css"
-            ]
+        "min": {
+            "js": [],
+            "css": []
+        },
+        "max": {
+            "js": [],
+            "css": []
         }
     },
     "minifyModes": {
         "light": {
-            "terser": {
+            "terserJS": {
                 "compress": false,
                 "mangle": false
             },
@@ -24,7 +32,7 @@
             }
         },
         "normal": {
-            "terser": {
+            "terserJS": {
                 "compress": true,
                 "mangle": true
             },
@@ -33,7 +41,7 @@
             }
         },
         "hard": {
-            "terser": {
+            "terserJS": {
                 "compress": {
                     "drop_console": true
                 },
