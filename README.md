@@ -40,10 +40,10 @@ npx gulp css --files style.css theme.css
 
 ```bash
 # JS из "min" секции конфига
-npx gulp js --option min
+npx gulp --type js --option min
 
 # CSS из "max" секции конфига
-npx gulp css --option max
+npx gulp --type css --option max
 ```
 
 ### 3. Режимы минификации
@@ -52,10 +52,10 @@ npx gulp css --option max
 npx gulp minify --mode light
 
 # Максимальный (удаляет console.log)
-npx gulp js --mode hard
+npx gulp --type js --mode hard
 
 # Оптимальный (по умолчанию)
-npx gulp css --mode normal
+npx gulp --type css --mode normal
 ```
 
 ### 4. Комбо
