@@ -14,6 +14,8 @@
 - ✅ 3 режима: light/normal/hard
 
 ## 🚀 Быстрый старт
+> [!WARNING]
+> В файле `minifier-config.example.json` содержится пример конфигурации. Важно не забыть создать свой `minifier-config.json` на основе примера
 
 ```bash
 npm i
@@ -83,12 +85,12 @@ uploader s theme=your-theme
 
 ```text
 insales-gulp-minifier/
-├── theme_1/                # Пример рабочей темы 1
-│   ├── index.js            # Настройками доступа к магазину
-├── theme_2/                # Пример рабочей темы 2
-│   ├── index.js            # Настройками доступа к магазину
-├── gulpfile.js             # Основной Gulp
-├── insales-config.js       # Конфигурация uploader
-├── minifier-config.json    # Пример конфига для проекта
-├── package.json            # Зависимости
+├── theme_1/                  # Пример рабочей темы 1
+│   ├── index.js              # Настройками доступа к магазину
+├── theme_2/                  # Пример рабочей темы 2
+│   ├── index.js              # Настройками доступа к магазину
+├── gulpfile.js               # Основной Gulp
+├── insales-config.js         # Конфигурация uploader
+├── minifier-config.json      # Пример конфига для проекта
+├── package.json              # Зависимости
 ```
