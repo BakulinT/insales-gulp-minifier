@@ -2,6 +2,9 @@ node_modules/
 *.min.*
 .DS_Store
 .env
+.env.*
+package-lock.json
+*/
 themes/
 **/assets/
 **/media/
