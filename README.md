@@ -19,8 +19,8 @@
 
 ```bash
 npm i
-npx gulp theme=your-theme
-npx gulp theme=your-theme --mode=hard
+npx gulp --theme=your-theme
+npx gulp --theme=your-theme --mode=hard
 ```
 
 ## 📚 Примеры использования
@@ -29,10 +29,10 @@ npx gulp theme=your-theme --mode=hard
 
 ```bash
 # Только конкретные JS файлы
-npx gulp js --files em_theme.js app.js
+npx gulp --type js --files em_theme.js app.js
 
 # Только конкретные CSS файлы
-npx gulp css --files style.css theme.css
+npx gulp --type css --files style.css theme.css
 ```
 
 ### 2. Из конфига minifier-config.json
@@ -62,7 +62,7 @@ npx gulp --type css --mode normal
 
 ```bash
 # Максимальный режим оптимизации для JS файла theme.js
-npx gulp js --files theme.js --mode hard
+npx gulp --type js --files theme.js --mode hard
 ```
 
 ### 5. Справка
