@@ -10,7 +10,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "insales-uploader": "^1.13.6",
     "insales-uploader-autoprefixer": "^1.0.1",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
     "gulp-terser": "^2.1.0"

@@ -6,6 +6,7 @@
 для InSales Uploader. ES6→ES5, Autoprefixer, Terser, 3 режима сжатия.
 
 ## ✨ Особенности
+- ✅ Node.js #26.3.0
 - ✅ Минификация JS (Babel + Terser) + CSS (PostCSS)
 - ✅ Кроссбраузерность (IE11+, Safari 10+)
 - ✅ CLI параметры: --theme (th), --option (o), --mode (m), --type (tp), --files (f)
